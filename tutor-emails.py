@@ -3,7 +3,7 @@ import smtplib
 def student_email_v1(subject, student, student_grade, tutor_name, time, day, start_date, parent_name, parent_email):
   email_string = f'''Hi {tutor_name},
  
-You are scheduled to tutor {student} ({student_grade} grader) in {subject} on {day}s from {time}, beginning {start_date}, and ending the week of August 22. I have emailed {student}'s parent/guardian, and have given them your email address. If this is your first time working with {student} please contact their parent/guardian with a short introduction of yourself, and ask about {student}'s needs. Otherwise, please still reach out to the parent/guardian to notify them of the starting date. I have created a template for an email that you can send to their parent/guardian. Feel free to add any personal touches, or you can create one yourself. If you have worked with {student} previously please still make sure to reach out to their parent/guardian in advance of your first meeting. 
+You are scheduled to tutor {student} ({student_grade} grader) in {subject} on {day}s from {time}, beginning {start_date}, and ending the week of January 9. I have emailed {student}'s parent/guardian, and have given them your email address. If this is your first time working with {student} please contact their parent/guardian with a short introduction of yourself, and ask about {student}'s needs. Otherwise, please still reach out to the parent/guardian to notify them of the starting date. I have created a template for an email that you can send to their parent/guardian. Feel free to add any personal touches, or you can create one yourself. If you have worked with {student} previously please still make sure to reach out to their parent/guardian in advance of your first meeting. 
  
 Please send the Zoom tutoring links to {parent_name}. The parent's email address is {parent_email}.
  
@@ -31,7 +31,7 @@ Sincerely,
 def student_email_v2(subject, student, student_grade, tutor_name, time, day, start_date, parent_name, parent_email, student_email):
   email_string = f'''Hi {tutor_name},
  
-You are scheduled to tutor {student} ({student_grade} grader) in {subject} on {day}s from {time}, beginning {start_date}, and ending the week of August 22. I have emailed {student}'s parent/guardian and {student}, and have given them your email address. If this is your first time working with {student} please contact their parent/guardian with a short introduction of yourself, and ask about {student}'s needs. Otherwise, please still reach out to the parent/guardian to notify them of the starting date. I have created a template for an email that you can send to their parent/guardian. Feel free to add any personal touches, or you can create one yourself. If you have worked with {student} previously please still make sure to reach out to their parent/guardian in advance of your first meeting. 
+You are scheduled to tutor {student} ({student_grade} grader) in {subject} on {day}s from {time}, beginning {start_date}, and ending the week of January 9. I have emailed {student}'s parent/guardian and {student}, and have given them your email address. If this is your first time working with {student} please contact their parent/guardian with a short introduction of yourself, and ask about {student}'s needs. Otherwise, please still reach out to the parent/guardian to notify them of the starting date. I have created a template for an email that you can send to their parent/guardian. Feel free to add any personal touches, or you can create one yourself. If you have worked with {student} previously please still make sure to reach out to their parent/guardian in advance of your first meeting. 
  
 Please send the Zoom tutoring links to {student} and {parent_name}. The student's email address is {student_email}, and their parent/guardian's email address is {parent_email}.
  
@@ -170,7 +170,7 @@ def parent_email_either(student, parent_name, subject, tutor, tutor_email, day, 
  
 Thank you for signing up for Chicago Teen Mentors' tutoring service! Please see your child's tutoring schedule below.
  
-{student} will be working on {subject} with {tutor} ({tutor_email}) on {day}s from {time}. This tutor will contact you via email, prior to their first meeting with {student}. {student}'s first tutoring session will be on {day}, {start_date}. Our summer tutoring session will end the week of August 22. 
+{student} will be working on {subject} with {tutor} ({tutor_email}) on {day}s from {time}. This tutor will contact you via email, prior to their first meeting with {student}. {student}'s first tutoring session will be on {day}, {start_date}. Our fall tutoring session will end the week of January 9. 
  
 Please download and make a Zoom account before the first session. Our high school tutors will send you a link 5-10 minutes before your scheduled time. If {student} needs to miss any sessions, please contact your tutor in advance of your meeting to reschedule. We look forward to working with you and your child.
  
@@ -191,7 +191,7 @@ Thank you for signing up for Chicago Teen Mentors' tutoring service! Please see 
  
 {student} will be working on {subjects[0]} with {tutors[0]} ({tutor_emails[0]}) on {days[0]}s from {times[0]}. {student} will be working on {subjects[1]} with {tutors[1]} ({tutor_emails[1]}) on {days[1]}s from {times[1]}. These tutors will contact you via email, prior to their first meeting with {student}.
  
-{student}'s first tutoring session in {subjects[0]} will be on {days[0]}, {start_dates[0]}. {student}'s first tutoring session in {subjects[1]} will be on {days[1]}, {start_dates[1]}. Our summer session will end the week of August 22. Please download and make a Zoom account before the first session. 
+{student}'s first tutoring session in {subjects[0]} will be on {days[0]}, {start_dates[0]}. {student}'s first tutoring session in {subjects[1]} will be on {days[1]}, {start_dates[1]}. Our fall session will end the week of January 9. Please download and make a Zoom account before the first session. 
  
 Our high school tutors will send you a link 5-10 minutes before your scheduled time. If {student} needs to miss any sessions, please contact your tutor in advance of your meeting to reschedule. We look forward to working with you and your child.
  
