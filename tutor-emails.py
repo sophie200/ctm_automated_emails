@@ -1,9 +1,10 @@
 import smtplib
+import csv
 
 def student_email_v1(subject, student, student_grade, tutor_name, time, day, start_date, parent_name, parent_email):
   email_string = f'''Hi {tutor_name},
  
-You are scheduled to tutor {student} ({student_grade} grader) in {subject} on {day}s from {time}, beginning {start_date}, and ending the week of January 9. I have emailed {student}'s parent/guardian, and have given them your email address. If this is your first time working with {student} please contact their parent/guardian with a short introduction of yourself, and ask about {student}'s needs. Otherwise, please still reach out to the parent/guardian to notify them of the starting date. I have created a template for an email that you can send to their parent/guardian. Feel free to add any personal touches, or you can create one yourself. If you have worked with {student} previously please still make sure to reach out to their parent/guardian in advance of your first meeting. 
+You are scheduled to tutor {student} ({student_grade} grader) in {subject} on {day}s from {time}, beginning {start_date}, and ending the week of May 27. I have emailed {student}'s parent/guardian, and have given them your email address. If this is your first time working with {student} please contact their parent/guardian with a short introduction of yourself, and ask about {student}'s needs. Otherwise, please still reach out to the parent/guardian to notify them of the starting date. I have created a template for an email that you can send to their parent/guardian. Feel free to add any personal touches, or you can create one yourself. If you have worked with {student} previously please still make sure to reach out to their parent/guardian in advance of your first meeting. 
  
 Please send the Zoom tutoring links to {parent_name}. The parent's email address is {parent_email}.
  
@@ -31,7 +32,7 @@ Sincerely,
 def student_email_v2(subject, student, student_grade, tutor_name, time, day, start_date, parent_name, parent_email, student_email):
   email_string = f'''Hi {tutor_name},
  
-You are scheduled to tutor {student} ({student_grade} grader) in {subject} on {day}s from {time}, beginning {start_date}, and ending the week of January 9. I have emailed {student}'s parent/guardian and {student}, and have given them your email address. If this is your first time working with {student} please contact their parent/guardian with a short introduction of yourself, and ask about {student}'s needs. Otherwise, please still reach out to the parent/guardian to notify them of the starting date. I have created a template for an email that you can send to their parent/guardian. Feel free to add any personal touches, or you can create one yourself. If you have worked with {student} previously please still make sure to reach out to their parent/guardian in advance of your first meeting. 
+You are scheduled to tutor {student} ({student_grade} grader) in {subject} on {day}s from {time}, beginning {start_date}, and ending the week of May 27. I have emailed {student}'s parent/guardian and {student}, and have given them your email address. If this is your first time working with {student} please contact their parent/guardian with a short introduction of yourself, and ask about {student}'s needs. Otherwise, please still reach out to the parent/guardian to notify them of the starting date. I have created a template for an email that you can send to their parent/guardian. Feel free to add any personal touches, or you can create one yourself. If you have worked with {student} previously please still make sure to reach out to their parent/guardian in advance of your first meeting. 
  
 Please send the Zoom tutoring links to {student} and {parent_name}. The student's email address is {student_email}, and their parent/guardian's email address is {parent_email}.
  
@@ -56,7 +57,7 @@ Sincerely,
 {tutor_name}'''
   return email_string
 
-def send_emails(emails, subjects, students, student_grades, tutor_names, t, day, start_date, parent_names, parent_emails, send_student, student_emails):
+def send_emails(emails, subjects, students, student_grades, tutor_names, t, day, start_date, parent_names, parent_emails, send_students, student_emails):
   gmail_user = 'chicagoteenmentors@gmail.com'
   gmail_password = 'fortunatel8Y-'
 
@@ -64,7 +65,7 @@ def send_emails(emails, subjects, students, student_grades, tutor_names, t, day,
   for i in range(len(emails)):
     subject = "Tutoring Schedule ({} - {})".format(students[i], subjects[i])
     to = [emails[i]]
-    if send_student[i] == "yes":
+    if send_students[i] == "yes":
       body = student_email_v2(subjects[i], students[i], student_grades[i], tutor_names[i], t[i], day[i], start_date[i], parent_names[i], parent_emails[i], student_emails[i])
     else:
       body = student_email_v1(subjects[i], students[i], student_grades[i], tutor_names[i], t[i], day[i], start_date[i], parent_names[i], parent_emails[i])
@@ -88,52 +89,51 @@ Subject: %s
     except:
         print('Something went wrong...')
 
-file = open('tutor-data.txt', 'r') 
-lines = file.readlines() 
-
 emails = []
+tutor_names = []
 subjects = []
 students = []
 student_grades = []
-tutor_names = []
-t = []
+times = []
 days = []
-start_date = []
+start_dates = []
 parent_names = []
 parent_emails_lst = []
-send_student = []
+send_students = []
 student_emails = []
 
-num = 1
-for line in lines:
-  if line[:-1] in ["2", "3", "4", "5", "6", "7", "8", "9", "10","11","12"]:
-    num+=1
-  elif num == 1:
-    emails.append(line[:-1])
-  elif num == 2:
-    subjects.append(line[:-1])
-  elif num == 3:
-    students.append(line[:-1])
-  elif num == 4:
-    student_grades.append(line[:-1])
-  elif num == 5:
-    tutor_names.append(line[:-1])
-  elif num == 6:
-    t.append(line[:-1])
-  elif num == 7:
-    days.append(line[:-1])
-  elif num == 8:
-    start_date.append(line[:-1])
-  elif num == 9:
-    parent_names.append(line[:-1])
-  elif num == 10:
-    parent_emails_lst.append(line[:-1])
-  elif num == 11:
-    send_student.append(line[:-1])
-  elif num == 12:
-    student_emails.append(line[:-1])
-
-emails = emails[1:]
+with open('tutor-data.csv', newline='') as csvfile:
+    spamreader = csv.reader(csvfile, delimiter=',', quotechar='|')
+    for row in spamreader:
+        if row[0] != 'email':
+          i=0
+          while i<12:
+              if i==0:
+                  emails.append(row[i])
+              elif i==1:
+                  tutor_names.append(row[i])
+              elif i==2:
+                  subjects.append(row[i])
+              elif i==3:
+                  students.append(row[i])
+              elif i==4:
+                  student_grades.append(row[i])
+              elif i==5:
+                  times.append(row[i])
+              elif i==6:
+                  days.append(row[i])
+              elif i==7:
+                  start_dates.append(row[i])
+              elif i==8:
+                  parent_names.append(row[i])
+              elif i==9:
+                  parent_emails_lst.append(row[i])
+              elif i==10:
+                  send_students.append(row[i])
+              elif i==11:
+                  student_emails.append(row[i])
+              i+=1
+                
 parent_emails = {}
 for i in range(len(parent_emails_lst)):
   if parent_emails_lst[i] in parent_emails:
@@ -142,16 +142,16 @@ for i in range(len(parent_emails_lst)):
       parent_emails[parent_emails_lst[i]]["children"][students[i]]["tutor_emails"].append(emails[i])
       parent_emails[parent_emails_lst[i]]["children"][students[i]]["tutor_names"].append(tutor_names[i])
       parent_emails[parent_emails_lst[i]]["children"][students[i]]["days"].append(days[i])
-      parent_emails[parent_emails_lst[i]]["children"][students[i]]["time"].append(t[i])
-      parent_emails[parent_emails_lst[i]]["children"][students[i]]["start_dates"].append(start_date[i])
+      parent_emails[parent_emails_lst[i]]["children"][students[i]]["time"].append(times[i])
+      parent_emails[parent_emails_lst[i]]["children"][students[i]]["start_dates"].append(start_dates[i])
     else:
       parent_emails[parent_emails_lst[i]]["children"][students[i]] = {}
       parent_emails[parent_emails_lst[i]]["children"][students[i]]["subject(s)"] = [subjects[i]]
       parent_emails[parent_emails_lst[i]]["children"][students[i]]["tutor_emails"] = [emails[i]]
       parent_emails[parent_emails_lst[i]]["children"][students[i]]["tutor_names"]= [tutor_names[i]]
       parent_emails[parent_emails_lst[i]]["children"][students[i]]["days"] = [days[i]]
-      parent_emails[parent_emails_lst[i]]["children"][students[i]]["time"] = [t[i]]
-      parent_emails[parent_emails_lst[i]]["children"][students[i]]["start_dates"] = [start_date[i]]
+      parent_emails[parent_emails_lst[i]]["children"][students[i]]["time"] = [times[i]]
+      parent_emails[parent_emails_lst[i]]["children"][students[i]]["start_dates"] = [start_dates[i]]
   else:
     parent_emails[parent_emails_lst[i]] = {}
     parent_emails[parent_emails_lst[i]]["parent_name"] = parent_names[i]
@@ -161,8 +161,8 @@ for i in range(len(parent_emails_lst)):
     parent_emails[parent_emails_lst[i]]["children"][students[i]]["tutor_emails"] = [emails[i]]
     parent_emails[parent_emails_lst[i]]["children"][students[i]]["tutor_names"]= [tutor_names[i]]
     parent_emails[parent_emails_lst[i]]["children"][students[i]]["days"] = [days[i]]
-    parent_emails[parent_emails_lst[i]]["children"][students[i]]["time"] = [t[i]]
-    parent_emails[parent_emails_lst[i]]["children"][students[i]]["start_dates"] = [start_date[i]]
+    parent_emails[parent_emails_lst[i]]["children"][students[i]]["time"] = [times[i]]
+    parent_emails[parent_emails_lst[i]]["children"][students[i]]["start_dates"] = [start_dates[i]]
 
 # -- PARENT EMAILS --
 def parent_email_either(student, parent_name, subject, tutor, tutor_email, day, time, start_date):
@@ -170,7 +170,7 @@ def parent_email_either(student, parent_name, subject, tutor, tutor_email, day, 
  
 Thank you for signing up for Chicago Teen Mentors' tutoring service! Please see your child's tutoring schedule below.
  
-{student} will be working on {subject} with {tutor} ({tutor_email}) on {day}s from {time}. This tutor will contact you via email, prior to their first meeting with {student}. {student}'s first tutoring session will be on {day}, {start_date}. Our fall tutoring session will end the week of January 9. 
+{student} will be working on {subject} with {tutor} ({tutor_email}) on {day}s from {time}. This tutor will contact you via email, prior to their first meeting with {student}. {student}'s first tutoring session will be on {day}, {start_date}. Our second semester tutoring session will end the week of May 27. 
  
 Please download and make a Zoom account before the first session. Our high school tutors will send you a link 5-10 minutes before your scheduled time. If {student} needs to miss any sessions, please contact your tutor in advance of your meeting to reschedule. We look forward to working with you and your child.
  
@@ -191,7 +191,7 @@ Thank you for signing up for Chicago Teen Mentors' tutoring service! Please see 
  
 {student} will be working on {subjects[0]} with {tutors[0]} ({tutor_emails[0]}) on {days[0]}s from {times[0]}. {student} will be working on {subjects[1]} with {tutors[1]} ({tutor_emails[1]}) on {days[1]}s from {times[1]}. These tutors will contact you via email, prior to their first meeting with {student}.
  
-{student}'s first tutoring session in {subjects[0]} will be on {days[0]}, {start_dates[0]}. {student}'s first tutoring session in {subjects[1]} will be on {days[1]}, {start_dates[1]}. Our fall session will end the week of January 9. Please download and make a Zoom account before the first session. 
+{student}'s first tutoring session in {subjects[0]} will be on {days[0]}, {start_dates[0]}. {student}'s first tutoring session in {subjects[1]} will be on {days[1]}, {start_dates[1]}. Our second semester tutoring session will end the week of May 27. Please download and make a Zoom account before the first session. 
  
 Our high school tutors will send you a link 5-10 minutes before your scheduled time. If {student} needs to miss any sessions, please contact your tutor in advance of your meeting to reschedule. We look forward to working with you and your child.
  
@@ -239,5 +239,5 @@ Subject: %s
     except:
         print('Something went wrong...')
 
-#send_emails(emails, subjects, students, student_grades, tutor_names, t, days, start_date, parent_names, parent_emails_lst, send_student, student_emails)
-#parent_send_emails(parent_emails)
+send_emails(emails, subjects, students, student_grades, tutor_names, times, days, start_dates, parent_names, parent_emails_lst, send_students, student_emails)
+parent_send_emails(parent_emails)

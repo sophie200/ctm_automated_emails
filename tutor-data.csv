@@ -1,0 +1,3 @@
+email,tutor_name,subject,student,student_grade (put the after grade please! e.g. 5th instead of 5),time,day,start_date,parent_name,parent_email,send_student (yes/no),student_email
+sxie2@cps.edu,Sophie Xie,math,Bob Ross,4th,4-5 PM,Friday,Febuary 10,Sophie Xie,sophiexe60@gmail.com,no,
+sxie2@cps.edu,Sophie Xie,reading,Andy Dwyer,3rd,7-8 PM,Thursday,Feburary 9,Sophie Xie,sophiexe60@gmail.com,yes,sxie2@cps.edu
