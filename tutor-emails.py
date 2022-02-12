@@ -220,24 +220,24 @@ def parent_send_emails(parents):
         body = parent_email_both(student, parent_name, child["subject(s)"], child["tutor_names"], child["tutor_emails"], child["days"], child["time"], child["start_dates"])
       else:
         body = parent_email_either(student, parent_name, child["subject(s)"][0], child["tutor_names"][0], child["tutor_emails"][0], child["days"][0], child["time"][0], child["start_dates"][0])
-    email_text = """\
+      email_text = """\
 From: %s
 To: %s
 Subject: %s
 
 %s
 """ % (sent_from, ", ".join(to), subject, body)
-    try:
-        server = smtplib.SMTP_SSL('smtp.gmail.com', 465)
-        server.ehlo()
-        server.login(gmail_user, gmail_password)
-        #print(email_text)
-        server.sendmail(sent_from, to, email_text)
-        server.close()
+      try:
+          server = smtplib.SMTP_SSL('smtp.gmail.com', 465)
+          server.ehlo()
+          server.login(gmail_user, gmail_password)
+          #print(email_text)
+          server.sendmail(sent_from, to, email_text)
+          server.close()
 
-        print('Email sent!')
-    except:
-        print('Something went wrong...')
+          print('Email sent!')
+      except:
+          print('Something went wrong...')
 
-send_emails(emails, subjects, students, student_grades, tutor_names, times, days, start_dates, parent_names, parent_emails_lst, send_students, student_emails)
-parent_send_emails(parent_emails)
+#send_emails(emails, subjects, students, student_grades, tutor_names, times, days, start_dates, parent_names, parent_emails_lst, send_students, student_emails)
+#parent_send_emails(parent_emails)
