@@ -1,5 +1,8 @@
-import smtplib
+import yagmail
 import csv
+
+# In * below fill with own app password
+yag = yagmail.SMTP('chicagoteenmentors', '*')
 
 def student_email_v1(subject, student, student_grade, tutor_name, time, day, start_date, parent_name, parent_email):
   email_string = f'''Hi {tutor_name},
@@ -58,36 +61,16 @@ Sincerely,
   return email_string
 
 def send_emails(emails, subjects, students, student_grades, tutor_names, t, day, start_date, parent_names, parent_emails, send_students, student_emails):
-  gmail_user = 'chicagoteenmentors@gmail.com'
-  gmail_password = 'fortunatel8Y-'
-
-  sent_from = gmail_user
   for i in range(len(emails)):
-    subject = "Tutoring Schedule ({} - {})".format(students[i], subjects[i])
-    to = [emails[i]]
     if send_students[i] == "yes":
       body = student_email_v2(subjects[i], students[i], student_grades[i], tutor_names[i], t[i], day[i], start_date[i], parent_names[i], parent_emails[i], student_emails[i])
     else:
       body = student_email_v1(subjects[i], students[i], student_grades[i], tutor_names[i], t[i], day[i], start_date[i], parent_names[i], parent_emails[i])
 
-    email_text = """\
-From: %s
-To: %s
-Subject: %s
-
-%s
-""" % (sent_from, ", ".join(to), subject, body)
-    try:
-        server = smtplib.SMTP_SSL('smtp.gmail.com', 465)
-        server.ehlo()
-        server.login(gmail_user, gmail_password)
-        #print(email_text)
-        server.sendmail(sent_from, to, email_text)
-        server.close()
-
-        print('Email sent!')
-    except:
-        print('Something went wrong...')
+    subject = "Tutoring Schedule ({} - {})".format(students[i], subjects[i])
+    to = [emails[i]]
+    yag.send(to=to, subject=subject, contents=body)
+    print('Email sent!')
 
 emails = []
 tutor_names = []
@@ -206,12 +189,7 @@ chicagoteenmentors.org'''
   return email_string
 
 def parent_send_emails(parents):
-  gmail_user = 'chicagoteenmentors@gmail.com'
-  gmail_password = 'fortunatel8Y-'
-  subject = 'Tutoring Schedule'
-  sent_from = gmail_user
   for parent in parents:
-    to = [parent]
     parent_name = parents[parent]["parent_name"]
     for children in parents[parent]["children"]:
       student = children
@@ -220,24 +198,10 @@ def parent_send_emails(parents):
         body = parent_email_both(student, parent_name, child["subject(s)"], child["tutor_names"], child["tutor_emails"], child["days"], child["time"], child["start_dates"])
       else:
         body = parent_email_either(student, parent_name, child["subject(s)"][0], child["tutor_names"][0], child["tutor_emails"][0], child["days"][0], child["time"][0], child["start_dates"][0])
-      email_text = """\
-From: %s
-To: %s
-Subject: %s
+      to = [parent]
+      subject = 'Tutoring Schedule'
+      yag.send(to=to, subject=subject, contents=body)
+      print('Email sent!')
 
-%s
-""" % (sent_from, ", ".join(to), subject, body)
-      try:
-          server = smtplib.SMTP_SSL('smtp.gmail.com', 465)
-          server.ehlo()
-          server.login(gmail_user, gmail_password)
-          #print(email_text)
-          server.sendmail(sent_from, to, email_text)
-          server.close()
-
-          print('Email sent!')
-      except:
-          print('Something went wrong...')
-
-#send_emails(emails, subjects, students, student_grades, tutor_names, times, days, start_dates, parent_names, parent_emails_lst, send_students, student_emails)
-#parent_send_emails(parent_emails)
+send_emails(emails, subjects, students, student_grades, tutor_names, times, days, start_dates, parent_names, parent_emails_lst, send_students, student_emails)
+parent_send_emails(parent_emails)
