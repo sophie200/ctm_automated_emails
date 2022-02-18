@@ -1,7 +1,6 @@
 import yagmail
 import csv
 
-# In * below fill with own app password
 yag = yagmail.SMTP('chicagoteenmentors', '*')
 
 def student_email_v1(subject, student, student_grade, tutor_name, time, day, start_date, parent_name, parent_email):
@@ -9,7 +8,7 @@ def student_email_v1(subject, student, student_grade, tutor_name, time, day, sta
  
 You are scheduled to tutor {student} ({student_grade} grader) in {subject} on {day}s from {time}, beginning {start_date}, and ending the week of May 27. I have emailed {student}'s parent/guardian, and have given them your email address. If this is your first time working with {student} please contact their parent/guardian with a short introduction of yourself, and ask about {student}'s needs. Otherwise, please still reach out to the parent/guardian to notify them of the starting date. I have created a template for an email that you can send to their parent/guardian. Feel free to add any personal touches, or you can create one yourself. If you have worked with {student} previously please still make sure to reach out to their parent/guardian in advance of your first meeting. 
  
-Please send the Zoom tutoring links to {parent_name}. The parent's email address is {parent_email}.
+Please send the Zoom tutoring links to {parent_name}. The parent/guardian's email address is {parent_email}.
  
 If {student} does not have any homework please send them material to work on in between your tutoring sessions, so you can go over any issues they had with it during your meeting. Make sure to keep track of your service hours, so I can submit them for our supervising teacher's signature.
  
@@ -155,7 +154,7 @@ Thank you for signing up for Chicago Teen Mentors' tutoring service! Please see 
  
 {student} will be working on {subject} with {tutor} ({tutor_email}) on {day}s from {time}. This tutor will contact you via email, prior to their first meeting with {student}. {student}'s first tutoring session will be on {day}, {start_date}. Our second semester tutoring session will end the week of May 27. 
  
-Please download and make a Zoom account before the first session. Our high school tutors will send you a link 5-10 minutes before your scheduled time. If {student} needs to miss any sessions, please contact your tutor in advance of your meeting to reschedule. We look forward to working with you and your child.
+Please download and make a Zoom account before the first session. Our high school tutors will send you a link at least 10 minutes prior to your scheduled tutoring time. If {student} needs to miss any sessions, please contact your tutor in advance of your meeting to reschedule. We look forward to working with you and your child.
  
 If your child does not show up to their first tutoring session, they will be removed from the program and your tutor(s) will be paired with another student. Additionally, if your child misses two meetings in a row with no prior notice, they will be removed from our tutoring program and your tutor(s) will be paired with another student. Meetings will not be recorded, but parent(s)/guardian(s) are welcome to sit in on tutoring sessions.
  
@@ -176,7 +175,7 @@ Thank you for signing up for Chicago Teen Mentors' tutoring service! Please see 
  
 {student}'s first tutoring session in {subjects[0]} will be on {days[0]}, {start_dates[0]}. {student}'s first tutoring session in {subjects[1]} will be on {days[1]}, {start_dates[1]}. Our second semester tutoring session will end the week of May 27. Please download and make a Zoom account before the first session. 
  
-Our high school tutors will send you a link 5-10 minutes before your scheduled time. If {student} needs to miss any sessions, please contact your tutor in advance of your meeting to reschedule. We look forward to working with you and your child.
+Our high school tutors will send you a link at least 10 minutes prior to your scheduled tutoring time. If {student} needs to miss any sessions, please contact your tutor in advance of your meeting to reschedule. We look forward to working with you and your child.
  
 If your child does not show up to their first tutoring session, they will be removed from the program and your tutor(s) will be paired with another student. Additionally, if your child misses two meetings in a row with no prior notice, they will be removed from our tutoring program and your tutor(s) will be paired with another student. Meetings will not be recorded, but parent(s)/guardian(s) are welcome to sit in on tutoring sessions.
  
@@ -203,5 +202,5 @@ def parent_send_emails(parents):
       yag.send(to=to, subject=subject, contents=body)
       print('Email sent!')
 
-send_emails(emails, subjects, students, student_grades, tutor_names, times, days, start_dates, parent_names, parent_emails_lst, send_students, student_emails)
-parent_send_emails(parent_emails)
+#send_emails(emails, subjects, students, student_grades, tutor_names, times, days, start_dates, parent_names, parent_emails_lst, send_students, student_emails)
+#parent_send_emails(parent_emails)
