@@ -1,7 +1,7 @@
 import yagmail
 import csv
 
-yag = yagmail.SMTP('chicagoteenmentors', '*')
+yag = yagmail.SMTP('chicagoteenmentors', '***')
 
 def student_email_v1(subject, student, student_grade, tutor_name, time, day, start_date, parent_name, parent_email):
   email_string = f'''Hi {tutor_name},

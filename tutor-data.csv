@@ -1,24 +1,7 @@
-email,tutor_name,subject,student,student_grade (put the after grade please! e.g. 5th instead of 5),time,day,start_date,parent_name,parent_email,send_student (yes/no),student_email
-dcogolludo@cps.edu,Daniel Cogolludo,math,Stephen Parker II,10th,5:00-6:00 PM,Friday,February 25,Mr. Parker,saparker@cps.edu,yes,saparker2@cps.edu
-mabdellatif1@cps.edu,Mila Abdellatif,math,Steven Conda,7th,10:00-11:00AM,Saturday,February 26,Ms. Collins,nakitacollins@ymail.com,no,
-emolina19@cps.edu,Emily Molina,reading,Summer Mei,3rd,7:00-8:00 PM,Tuesday,February 22,Ms. Zeng,evian.s.mei@gmail.com,yes,Ecmei@cps.edu
-kserrano14@cps.edu,Kim Serrano,math,Summer Mei,3rd,7:00-8:00 PM,Wednesday,February 23,Ms. Zeng,evian.s.mei@gmail.com,yes,Ecmei@cps.edu
-brosekozy@cps.edu,Bella-Rose Kozy,reading,Tamaya Sain,7th,7:00-8:00 PM,Monday,February 21,Ms. Gray,missbrittneygray@yahoo.com,no,
-cflake1@cps.edu,Caila Flake,math,Tamaya Sain,7th,7:00-8:00 PM,Tuesday,February 22,Ms. Gray,missbrittneygray@yahoo.com,no,
-emmoster@cps.edu,Stella Moster,math,Tate Olsen,3rd,7:00-8:00 PM,Tuesday,February 22,Ms. Olsen,rubiotina@hotmail.com,yes,toolsen@cps.edu
-rlin3@cps.edu,Renz Lin,reading,Tate Olsen,3rd,7:00-8:00 PM,Thursday,February 24,Ms. Olsen,rubiotina@hotmail.com,yes,toolsen@cps.edu
-tjotey@cps.edu,Taylor Otey,math,Tlaloc Rosado,8th,10:00-11:00AM,Saturday,February 26,Ms. Rosado,julieta.rosado@gmail.com,no,
-augaz@cps.edu,Alicia Ugaz ,math,Todd Olsen,7th,7:00-8:00 PM,Tuesday,February 22,Ms. Olsen,rubiotina@hotmail.com,yes,tolsen1@cps.edu
-mbrown107@cps.edu,Mabel Brown,reading,Todd Olsen,7th,7:00-8:00 PM,Monday,February 21,Ms. Olsen,rubiotina@hotmail.com,yes,tolsen1@cps.edu
-nchopra1@cps.edu,Nina Chopra,reading and math,Trayln Smith,9th,7:00-8:00 PM and 10:00-11:00 AM,Fridays and Saturday,February 25,Ms. Hayden,trayshahayden@yahoo.com,yes,twsmith3@cps.edu
-nmjean-pierr@cps.edu,Nevaeh Jean-Pierre,reading,Tyler Garrett,5th,7:00-8:00 PM,Monday,February 21,Mrs. Garrett,hasina73@sbcglobal.net,yes,TGarret14@cps.edu
-asahrawat@cps.edu,Annika Sahrawat,reading,Victor Hambasan,5th,7:00-8:00 PM,Monday,February 21,Ms. Tarau,mihaelatarau@yahoo.com,yes,vhambasan@cps.edu
-fchan1@cps.edu,Faith Chan,math,Victor Hambasan,5th,5:45-6:45PM,Monday,February 21,Ms. Tarau,mihaelatarau@yahoo.com,yes,vhambasan@cps.edu
-akburmeister@cps.edu,Audrey Burmeister ,reading,Winni Huang,3rd,7:00-8:00 PM,Monday,February 21,Mrs. Liao,aiyanliao2012@gmail.com,yes,whuang14@cps.edu
-ashort5@cps.edu,Aaliyah Short,math,Winni Huang,3rd,10:00-11:00 AM,Saturday,February 26,Mrs. Liao,aiyanliao2012@gmail.com,yes,whuang14@cps.edu
-joetter@cps.edu,Jack Oetter,math,Yena Lee ,5th,5:00-6:00 PM,Monday,February 21,Mrs. Lee,gomtangi82@gmail.com,yes,ylee13@cps.edu
-cmkulanda@cps.edu,Christa Kulanda,math,Zeferina Rodriguez-Villegas,3rd,10:00-11:00AM,Saturday,February 26,Ms. Villegas,grecialvillegas22@gmail.com,no,
-eckwon@cps.edu,Ella Kwon,math,Zoe Hannah,6th,7:00-8:00 PM,Wednesday,February 23,Mrs. Castro,dorincastro20@hotmail.com,yes,Zehannah@cps.edu
-ilaverty@cps.edu,Ireland Laverty,reading,Zoe Hannah,6th,7:00-8:00 PM,Thursday,February 24,Mrs. Castro,dorincastro20@hotmail.com,yes,Zehannah@cps.edu
-iwu1@cps.edu,Isabel Wu,math,Zoe Narut,4th,7:00-8:00 PM,Thursday,February 24,Mrs. Narut,cpnarut@gmail.com,yes,ZNNarut@cps.edu
-jlavallee@cps.edu,Jade Lavallee,math,Kennedy Smith,8th,7:45-8:45 PM,Thursday,February 24,Ms. Whitfield ,kwhitfield25@yahoo.com,yes,Ksmith179@cps.edu
+email,tutor_name,subject,student,student_grade (put the after grade please! e.g. 5th instead of 5),time,day,start_date,parent_name,parent_email,send_student (yes/no),student_email,Prepared by,Note,,
+aleebe@cps.edu,Affan Leebe,reading,Stella Rodgers,6th,5:00-6:00 PM,Friday,March 25th,Mrs. Rodgers,bride090906@gmail.com,no,,Nikita,,,
+cnessex@cps.edu,Cheyenne Essex,reading,Mario Howard,9th,7:00-8:00 PM,Saturday,March 19th,Ms. Zwierz,Zwierzjennifer@yahoo.com,no,,Frank,,,
+cnessex@cps.edu,Cheyenne Essex,reading,Mariah Howard,9th,7:00-8:00 PM,Wednesday,March 23,Ms. Zwierz,Zwierzjennifer@yahoo.com,no,,Frank,,,
+surbina5@cps.edu,Sofia Urbina,math,Luis Romero,10th,7:00-8:00 PM,Tuesday,March 22nd,Ms. Tamayo,Adrianatamayo9999@gmail.com,yes,Laromero5@cps.edu,Frank,,,
+sphilbin@cps.edu,Sierra Philbin,reading,Cian Grogan,3rd,7:00-8:00 PM,Wednesday,March 23,Ms. Grogan,janet.a.grogan@gmail.com,no,,Frank,,,
+jmnacionales@cps.edu,James Nacionales,reading,Charlie Billows,5th,5:00-6:00 PM,Monday,March 28,Mrs. Billows,Jrichardson0313@yahoo.com,yes,Cabillows@cps edu,,,
